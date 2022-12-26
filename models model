@@ -1,0 +1,39 @@
+****************************************************
+
+*------USER------*
+id_username:string [ min 6 chars, unique, present ]
+email:string [min 6 chars, present]
+password:string [min 8 chars, present]
+
+/////////////////
+
+has_many :comments, :posts
+
+*----------------*
+
+****************************************************
+
+*------POST------*
+id:integer
+url:string [present]
+user:foreign_key [present]
+
+/////////////////
+
+has_many :comments
+*----------------*
+
+****************************************************
+
+*-----COMMENT----*
+id:integer
+user:foreign_key
+post:foreign_key
+body:string [present]
+
+/////////////////
+
+belongs_to :post
+
+*----------------*
+****************************************************
